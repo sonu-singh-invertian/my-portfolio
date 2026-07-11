@@ -3,221 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonu Singh | Portfolio</title>
+    <title>Sonu Singh | Software Engineer Portfolio</title>
     <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #131c2e;
+            --accent-color: #0ea5e9;
+            --accent-glow: rgba(14, 165, 233, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #1e293b;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            scroll-behavior: smooth;
         }
+
         body {
-            background-color: #0f172a;
-            color: #cbd5e1;
-            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
+
         header {
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(11, 15, 25, 0.85);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #1e293b;
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
         }
+
         .nav-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
         }
+
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #38bdf8;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
+
+        .logo span {
+            color: var(--accent-color);
         }
-        .nav-links a:hover {
-            color: #38bdf8;
-        }
-        section {
-            padding: 6rem 2rem 4rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .hero {
-            min-height: 90vh;
+
+        .nav-links {
             display: flex;
-            flex-direction: row;
             align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
-        }
-        .hero-content {
-            flex: 1.2;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #f8fafc;
-            margin-bottom: 0.5rem;
-        }
-        .hero h2 {
-            font-size: 1.8rem;
-            color: #38bdf8;
-            margin-bottom: 1.5rem;
-        }
-        .hero p {
-            font-size: 1.05rem;
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-        .hero-image {
-            flex: 0.8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .profile-pic {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #38bdf8;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-        }
-        .social-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            background-color: #38bdf8;
-            color: #0f172a;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #0ea5e9;
-        }
-        .btn-outline {
-            background-color: transparent;
-            color: #38bdf8;
-            border: 2px solid #38bdf8;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .btn-outline:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
-        }
-        .btn-sm {
-            display: inline-block;
-            background-color: transparent;
-            color: #38bdf8;
-            border: 1px solid #38bdf8;
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-        .btn-sm:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
-        }
-        h3 {
-            font-size: 2rem;
-            color: #f8fafc;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #38bdf8;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        .card {
-            background: #1e293b;
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            transition: transform 0.3s;
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        .card:hover {
-            transform: translateY(-5px);
+
+        .nav-links a:hover {
+            color: var(--accent-color);
         }
-        .card h4 {
-            color: #f8fafc;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+
+        section {
+            padding: 8rem 2rem 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .badge {
-            background: #0369a1;
-            color: #e0f2fe;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1.3;
+        }
+
+        .hero-tag {
             display: inline-block;
-            margin-bottom: 1rem;
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--accent-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(14, 165, 233, 0.2);
         }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .hero-image {
+            flex: 0.7;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            position: relative;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 15px;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .profile-pic {
+            width: 280px;
+            height: 340px;
+            border-radius: 16px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.05);
+            border-color: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h4 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .company-tag {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .skills-container {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 0.8rem;
         }
+
         .skill-tag {
-            background: #334155;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            background: rgba(30, 41, 59, 0.5);
+            color: #e2e8f0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
             font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
         }
-        .contact-info p {
+
+        .skill-tag:hover {
+            border-color: var(--accent-color);
+            color: var(--text-primary);
+            background: rgba(14, 165, 233, 0.05);
+        }
+
+        .btn-sm {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .btn-sm:hover {
+            text-decoration: underline;
+        }
+
+        .contact-box {
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(19, 28, 46, 0.5) 100%);
+            padding: 4rem 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item a {
+            color: var(--text-primary);
+            text-decoration: none;
             font-size: 1.2rem;
-            margin-bottom: 0.8rem;
+            font-weight: 600;
+            transition: color 0.3s;
         }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
         footer {
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #1e293b;
-            color: #64748b;
-            margin-top: 2rem;
+            padding: 3rem;
+            border-top: 1px solid var(--border-color);
+            color: #475569;
+            font-size: 0.9rem;
+            margin-top: 5rem;
         }
-        
-        @media (max-width: 768px) {
+
+        @media (max-width: 968px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 6rem;
+                gap: 3rem;
+                padding-top: 5rem;
             }
-            .hero p {
-                text-align: center;
-            }
-            .profile-pic {
-                width: 220px;
-                height: 220px;
-            }
-            .social-buttons {
-                justify-content: center;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { text-align: center; }
+            .action-buttons { justify-content: center; }
+            .contact-info { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
@@ -225,116 +346,121 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo">Sonu Singh</div>
+            <div class="logo">Sonu<span>Singh</span></div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#certificates">Certificates</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
+                <!-- Future use ke liye Resume Button jo recruiter chahte hain -->
+                <a href="#" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Resume</a>
             </div>
         </div>
     </header>
 
     <section id="about" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm Sonu Singh</h1>
-            <h2>B.Tech CSE Student @ Invertis University</h2>
-            <p>A passionate B.Tech Computer Science & Engineering student with a strong interest in Software Development, Machine Learning, and Cybersecurity. I enjoy building practical, user-focused applications and continuously improving my technical skills through real-world projects and internships.</p>
+            <div class="hero-tag">Available for Opportunities</div>
+            <h1>Software Engineer & CSE Student</h1>
+            <h2>Invertis University</h2>
+            <p>Hi, I'm Sonu Singh, a passionate B.Tech Computer Science & Engineering student with a strong interest in Software Development, Machine Learning, and Cybersecurity. I enjoy building practical, user-focused applications and continuously improving my technical skills through real-world projects and internships.</p>
             <p>I have hands-on experience with C++, Python, JavaScript, HTML, CSS, React.js, Node.js, Express.js, MongoDB, SQL, and Git. I have also completed internships in Machine Learning & Data Science and Ethical Hacking, which strengthened my problem-solving abilities and practical understanding of modern technologies.</p>
-            <p>I believe in continuous learning, writing clean code, and creating impactful solutions. I am currently looking for opportunities where I can contribute, learn from experienced professionals, and grow as a software engineer.</p>
             
-            <div class="social-buttons">
+            <div class="action-buttons">
                 <a href="https://www.linkedin.com/in/sonu-singh-invertian/" target="_blank" class="btn">Connect on LinkedIn</a>
                 <a href="https://github.com/sonu-singh-invertian" target="_blank" class="btn-outline">View GitHub</a>
             </div>
         </div>
         
         <div class="hero-image">
-            <img src="profile.jpg" alt="Sonu Singh" class="profile-pic">
+            <div class="profile-card">
+                <img src="profile.jpg" alt="Sonu Singh" class="profile-pic">
+            </div>
         </div>
     </section>
 
     <section id="experience">
-        <h3>Internships & Experience</h3>
+        <h3 class="section-title">Professional Experience</h3>
         <div class="grid">
             <div class="card">
-                <span class="badge">Virtual Internship</span>
+                <span class="company-tag">Cybersecurity Domain</span>
                 <h4>Ethical Hacking Intern</h4>
-                <p style="color: #94a3b8; margin-bottom: 1rem;">Focused on vulnerability assessment, network security auditing, and understanding penetration testing methodologies to secure digital assets.</p>
-                <div class="skills-list">
+                <p>Focused on vulnerability assessment, network security auditing, and understanding penetration testing methodologies to secure digital infrastructure and corporate assets.</p>
+                <div class="skills-list" style="margin-top: 1.5rem;">
                     <span class="skill-tag">VAPT</span>
                     <span class="skill-tag">Network Security</span>
                     <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">Cybersecurity</span>
                 </div>
             </div>
             <div class="card">
-                <span class="badge">Virtual Internship</span>
-                <h4>Machine Learning & Data Science Intern</h4>
-                <p style="color: #94a3b8; margin-bottom: 1rem;">Worked on data preprocessing, predictive modeling, and analyzing datasets to extract actionable insights using ML algorithms.</p>
-                <div class="skills-list">
+                <span class="company-tag">AI & Analytics Domain</span>
+                <h4>Machine Learning Intern</h4>
+                <p>Worked on data preprocessing pipelines, predictive modeling implementations, and analyzing large datasets to extract actionable engineering insights using core algorithms.</p>
+                <div class="skills-list" style="margin-top: 1.5rem;">
                     <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Scikit-Learn</span>
                     <span class="skill-tag">Data Science</span>
-                    <span class="skill-tag">ML Algorithms</span>
+                    <span class="skill-tag">Scikit-Learn</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NAYA CERTIFICATES SECTION -->
     <section id="certificates">
-        <h3>Licenses & Certifications</h3>
+        <h3 class="section-title">Verified Credentials</h3>
         <div class="grid">
             <div class="card">
-                <h4>Ethical Hacking Certificate</h4>
-                <p style="color: #94a3b8;">Issued for successfully completing the virtual internship and demonstrating core technical skills in cybersecurity.</p>
-                <!-- Niche href="hacking_cert.pdf" ko aap badal sakte hain -->
-                <a href="hacking_cert.pdf" target="_blank" class="btn-sm">View Certificate</a>
+                <h4>Cybersecurity Verification</h4>
+                <p>Official completion credential evaluating practical knowledge of threat frameworks and defensive methodologies.</p>
+                <a href="hacking_cert.pdf" target="_blank" class="btn-sm">Review Credential &rarr;</a>
             </div>
             <div class="card">
-                <h4>Machine Learning & Data Science Certificate</h4>
-                <p style="color: #94a3b8;">Issued for hands-on predictive modeling, data analysis, and implementation of algorithms during the internship.</p>
-                <!-- Niche href="ml_cert.pdf" ko aap badal sakte hain -->
-                <a href="ml_cert.pdf" target="_blank" class="btn-sm">View Certificate</a>
+                <h4>Data Science Verification</h4>
+                <p>Assessed professional competency in machine learning algorithms, model training, and statistical workflows.</p>
+                <a href="ml_cert.pdf" target="_blank" class="btn-sm">Review Credential &rarr;</a>
             </div>
         </div>
     </section>
 
     <section id="skills">
-        <h3>Technical Skills</h3>
-        <div class="skills-list" style="gap: 1rem;">
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">C++</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Python</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">JavaScript</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">React.js</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Node.js</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Express.js</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">MongoDB</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">SQL</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">HTML & CSS</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Machine Learning</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Ethical Hacking</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Git & GitHub</span>
+        <h3 class="section-title">Core Competencies</h3>
+        <div class="skills-container">
+            <div class="skills-list">
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express.js</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">HTML5 & CSS3</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Ethical Hacking</span>
+                <span class="skill-tag">Git & GitHub</span>
+            </div>
         </div>
     </section>
 
-    <section id="contact" style="text-align: center;">
-        <h3>Let's Connect</h3>
-        <p style="margin-bottom: 2rem; font-size: 1.1rem;">HRs aur Tech Leads ko impress karne ke liye ready hoon. Let's discuss jobs or collaboration.</p>
-        <div class="contact-info">
-            <p>📧 Email: <a href="mailto:sonusingh.in2019@gmail.com" style="color: #38bdf8; text-decoration: none;">sonusingh.in2019@gmail.com</a></p>
-            <p>📞 Phone: <a href="tel:+919368055141" style="color: #38bdf8; text-decoration: none;">+91 9368055141</a></p>
+    <section id="contact">
+        <div class="contact-box">
+            <h3 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 1rem;">Get In Touch</h3>
+            <p>Open for software engineering roles, technical collaborations, and core development opportunities.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span style="display:block; font-size:0.85rem; color:var(--accent-color);">EMAIL ANYTIME</span>
+                    <a href="mailto:sonusingh.in2019@gmail.com">sonusingh.in2019@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span style="display:block; font-size:0.85rem; color:var(--accent-color);">CALL DIRECTLY</span>
+                    <a href="tel:+919368055141">+91 9368055141</a>
+                </div>
+            </div>
         </div>
-        <p style="margin-top: 2rem;">
-            <a href="https://www.linkedin.com/in/sonu-singh-invertian/" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">LinkedIn Profile</a> | 
-            <a href="https://github.com/sonu-singh-invertian" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">GitHub Profile</a>
-        </p>
     </section>
 
     <footer>
-        &copy; 2026 Sonu Singh. Built for Tech Opportunities.
+        &copy; 2026 Sonu Singh. Engineered for scale.
     </footer>
 
 </body>
