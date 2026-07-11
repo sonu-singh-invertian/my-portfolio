@@ -55,9 +55,13 @@
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1;
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -74,6 +78,25 @@
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
         .btn {
             background-color: #38bdf8;
             color: #0f172a;
@@ -85,6 +108,20 @@
         }
         .btn:hover {
             background-color: #0ea5e9;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #38bdf8;
+            border: 2px solid #38bdf8;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
         }
         h3 {
             font-size: 2rem;
@@ -141,6 +178,22 @@
             border-top: 1px solid #1e293b;
             color: #64748b;
         }
+        
+        /* Responsive design responsive screen ke liye */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 8rem;
+            }
+            .profile-pic {
+                width: 240px;
+                height: 240px;
+            }
+            .social-buttons {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -158,10 +211,21 @@
     </header>
 
     <section id="about" class="hero">
-        <h1>Hi, I'm Sonu Singh</h1>
-        <h2>B.Tech CSE Student @ Invertis University</h2>
-        <p>Final-year Computer Science student looking for full-time job and internship opportunities. Passionate about cybersecurity, building smart data-driven models, and solving complex problems.</p>
-        <a href="#contact" class="btn">Get In Touch</a>
+        <div class="hero-content">
+            <h1>Hi, I'm Sonu Singh</h1>
+            <h2>B.Tech CSE Student @ Invertis University</h2>
+            <p>Final-year Computer Science student actively seeking full-time opportunities and internships. Passionate about cybersecurity, ethical hacking, and building smart data-driven models using Machine Learning.</p>
+            
+            <div class="social-buttons">
+                <a href="YOUR_LINKEDIN_URL" target="_blank" class="btn">Connect on LinkedIn</a>
+                <a href="YOUR_GITHUB_URL" target="_blank" class="btn-outline">View GitHub</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <!-- Yahan aapki photo profile.jpg ke naam se fetch hogi -->
+            <img src="profile.jpg" alt="Sonu Singh" class="profile-pic">
+        </div>
     </section>
 
     <section id="experience">
@@ -206,10 +270,10 @@
     <section id="contact" style="text-align: center;">
         <h3>Let's Connect</h3>
         <p style="margin-bottom: 2rem;">HRs aur Tech Leads ko impress karne ke liye ready hoon. Let's discuss jobs or collaboration.</p>
-        <p>Email: <a href="mailto:your.email@example.com" style="color: #38bdf8;">your.email@example.com</a></p>
-        <p style="margin-top: 1rem;">
-            <a href="#" style="color: #38bdf8; text-decoration: none; margin: 0 1rem;">LinkedIn</a> | 
-            <a href="#" style="color: #38bdf8; text-decoration: none; margin: 0 1rem;">GitHub</a>
+        <p>Email: <a href="mailto:sonusingh@example.com" style="color: #38bdf8;">sonusingh@example.com</a></p>
+        <p style="margin-top: 1.5rem;">
+            <a href="YOUR_LINKEDIN_URL" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">LinkedIn Profile</a> | 
+            <a href="YOUR_GITHUB_URL" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">GitHub Profile</a>
         </p>
     </section>
 
