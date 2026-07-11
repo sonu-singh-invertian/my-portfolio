@@ -135,7 +135,6 @@
             position: relative;
         }
 
-        /* Yahan se frame hata kar background blend effect lagaya hai */
         .profile-container {
             position: relative;
             display: inline-block;
@@ -146,10 +145,7 @@
             height: auto;
             display: block;
             border-radius: 12px;
-            /* Smooth edges filter for seamless look */
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%),
-                        linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%),
-                        linear-gradient(to left, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
             opacity: 0.9;
             transition: opacity 0.3s ease;
@@ -173,6 +169,8 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 14px var(--accent-glow);
         }
@@ -297,33 +295,68 @@
             text-decoration: underline;
         }
 
+        /* Modern Contact Form Styling */
         .contact-box {
             background: linear-gradient(180deg, var(--bg-card) 0%, rgba(19, 28, 46, 0.5) 100%);
-            padding: 4rem 2rem;
+            padding: 4rem 3rem;
             border-radius: 24px;
             border: 1px solid var(--border-color);
-            text-align: center;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .contact-info {
+        .contact-form {
+            margin-top: 2.5rem;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: rgba(11, 15, 25, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .contact-meta {
             display: flex;
             justify-content: center;
             gap: 3rem;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
             flex-wrap: wrap;
         }
 
-        .contact-item a {
+        .meta-item a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.2rem;
             font-weight: 600;
+            font-size: 1rem;
             transition: color 0.3s;
         }
 
-        .contact-item a:hover {
+        .meta-item a:hover {
             color: var(--accent-color);
         }
 
@@ -346,8 +379,9 @@
             .hero h1 { font-size: 2.8rem; }
             .hero p { text-align: center; }
             .action-buttons { justify-content: center; }
-            .contact-info { flex-direction: column; gap: 1rem; }
+            .contact-meta { flex-direction: column; gap: 1rem; }
             .profile-pic { width: 260px; }
+            .contact-box { padding: 2.5rem 1.5rem; }
         }
     </style>
 </head>
@@ -452,15 +486,32 @@
 
     <section id="contact">
         <div class="contact-box">
-            <h3 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 1rem;">Get In Touch</h3>
-            <p>Open for software engineering roles, technical collaborations, and core development opportunities.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span style="display:block; font-size:0.85rem; color:var(--accent-color);">EMAIL ANYTIME</span>
+            <h3 style="color: var(--text-primary); font-size: 2rem; text-align: center;">Get In Touch</h3>
+            <p style="text-align: center; margin-bottom: 1.5rem;">Have an opportunity or want to collaborate? Drop a message below!</p>
+            
+            <form class="contact-form" action="https://formspree.io/f/xnqeongv" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" name="_replyto" placeholder="name@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your project details or job description here..." required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Send Message</button>
+            </form>
+
+            <div class="contact-meta">
+                <div class="meta-item">
+                    <span style="display:block; font-size:0.8rem; color:var(--accent-color);">EMAIL DIRECT</span>
                     <a href="mailto:sonusingh.in2019@gmail.com">sonusingh.in2019@gmail.com</a>
                 </div>
-                <div class="contact-item">
-                    <span style="display:block; font-size:0.85rem; color:var(--accent-color);">CALL DIRECTLY</span>
+                <div class="meta-item">
+                    <span style="display:block; font-size:0.8rem; color:var(--accent-color);">CALL DIRECT</span>
                     <a href="tel:+919368055141">+91 9368055141</a>
                 </div>
             </div>
