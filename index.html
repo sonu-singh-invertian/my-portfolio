@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonu Singh | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+            backdrop-filter: blur(10px);
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #f8fafc;
+            margin-bottom: 0.5rem;
+        }
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #38bdf8;
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0ea5e9;
+        }
+        h3 {
+            font-size: 2rem;
+            color: #f8fafc;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #38bdf8;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h4 {
+            color: #f8fafc;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            background: #0369a1;
+            color: #e0f2fe;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .skill-tag {
+            background: #334155;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Sonu Singh</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="hero">
+        <h1>Hi, I'm Sonu Singh</h1>
+        <h2>B.Tech CSE Student @ Invertis University</h2>
+        <p>Final-year Computer Science student looking for full-time job and internship opportunities. Passionate about cybersecurity, building smart data-driven models, and solving complex problems.</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </section>
+
+    <section id="experience">
+        <h3>Internships & Experience</h3>
+        <div class="grid">
+            <div class="card">
+                <span class="badge">Virtual Internship</span>
+                <h4>Ethical Hacking Intern</h4>
+                <p style="color: #94a3b8; margin-bottom: 1rem;">Focused on vulnerability assessment, network security auditing, and understanding penetration testing methodologies to secure digital assets.</p>
+                <div class="skills-list">
+                    <span class="skill-tag">VAPT</span>
+                    <span class="skill-tag">Network Security</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+            <div class="card">
+                <span class="badge">Virtual Internship</span>
+                <h4>Machine Learning & Data Science Intern</h4>
+                <p style="color: #94a3b8; margin-bottom: 1rem;">Worked on data preprocessing, predictive modeling, and analyzing datasets to extract actionable insights using ML algorithms.</p>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Scikit-Learn</span>
+                    <span class="skill-tag">Data Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h3>Technical Skills</h3>
+        <div class="skills-list" style="gap: 1rem;">
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Python</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Machine Learning</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Data Science</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Ethical Hacking</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Cybersecurity</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">SQL</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Git & GitHub</span>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h3>Let's Connect</h3>
+        <p style="margin-bottom: 2rem;">HRs aur Tech Leads ko impress karne ke liye ready hoon. Let's discuss jobs or collaboration.</p>
+        <p>Email: <a href="mailto:your.email@example.com" style="color: #38bdf8;">your.email@example.com</a></p>
+        <p style="margin-top: 1rem;">
+            <a href="#" style="color: #38bdf8; text-decoration: none; margin: 0 1rem;">LinkedIn</a> | 
+            <a href="#" style="color: #38bdf8; text-decoration: none; margin: 0 1rem;">GitHub</a>
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2026 Sonu Singh. Built for Tech Opportunities.
+    </footer>
+
+</body>
+</html>
