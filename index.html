@@ -48,20 +48,20 @@
             color: #38bdf8;
         }
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem 4rem 2rem;
             max-width: 1100px;
             margin: 0 auto;
         }
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 3rem;
         }
         .hero-content {
-            flex: 1;
+            flex: 1.2;
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -74,19 +74,19 @@
             margin-bottom: 1.5rem;
         }
         .hero p {
-            max-width: 600px;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            text-align: justify;
         }
         .hero-image {
-            flex: 1;
+            flex: 0.8;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .profile-pic {
-            width: 320px;
-            height: 320px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #38bdf8;
@@ -95,6 +95,7 @@
         .social-buttons {
             display: flex;
             gap: 1rem;
+            margin-top: 2rem;
             margin-bottom: 2rem;
         }
         .btn {
@@ -172,23 +173,30 @@
             border-radius: 20px;
             font-size: 0.9rem;
         }
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
         footer {
             text-align: center;
             padding: 2rem;
             border-top: 1px solid #1e293b;
             color: #64748b;
+            margin-top: 2rem;
         }
         
-        /* Responsive design responsive screen ke liye */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 8rem;
+                padding-top: 6rem;
+            }
+            .hero p {
+                text-align: center;
             }
             .profile-pic {
-                width: 240px;
-                height: 240px;
+                width: 220px;
+                height: 220px;
             }
             .social-buttons {
                 justify-content: center;
@@ -214,16 +222,17 @@
         <div class="hero-content">
             <h1>Hi, I'm Sonu Singh</h1>
             <h2>B.Tech CSE Student @ Invertis University</h2>
-            <p>Final-year Computer Science student actively seeking full-time opportunities and internships. Passionate about cybersecurity, ethical hacking, and building smart data-driven models using Machine Learning.</p>
+            <p>A passionate B.Tech Computer Science & Engineering student with a strong interest in Software Development, Machine Learning, and Cybersecurity. I enjoy building practical, user-focused applications and continuously improving my technical skills through real-world projects and internships.</p>
+            <p>I have hands-on experience with C++, Python, JavaScript, HTML, CSS, React.js, Node.js, Express.js, MongoDB, SQL, and Git. I have also completed internships in Machine Learning & Data Science and Ethical Hacking, which strengthened my problem-solving abilities and practical understanding of modern technologies.</p>
+            <p>I believe in continuous learning, writing clean code, and creating impactful solutions. I am currently looking for opportunities where I can contribute, learn from experienced professionals, and grow as a software engineer.</p>
             
             <div class="social-buttons">
-                <a href="YOUR_LINKEDIN_URL" target="_blank" class="btn">Connect on LinkedIn</a>
-                <a href="YOUR_GITHUB_URL" target="_blank" class="btn-outline">View GitHub</a>
+                <a href="https://www.linkedin.com/in/sonu-singh-invertian/" target="_blank" class="btn">Connect on LinkedIn</a>
+                <a href="https://github.com/sonu-singh-invertian" target="_blank" class="btn-outline">View GitHub</a>
             </div>
         </div>
         
         <div class="hero-image">
-            <!-- Yahan aapki photo profile.jpg ke naam se fetch hogi -->
             <img src="profile.jpg" alt="Sonu Singh" class="profile-pic">
         </div>
     </section>
@@ -239,6 +248,7 @@
                     <span class="skill-tag">VAPT</span>
                     <span class="skill-tag">Network Security</span>
                     <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Cybersecurity</span>
                 </div>
             </div>
             <div class="card">
@@ -248,7 +258,8 @@
                 <div class="skills-list">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">Scikit-Learn</span>
-                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Data Science</span>
+                    <span class="skill-tag">ML Algorithms</span>
                 </div>
             </div>
         </div>
@@ -257,23 +268,31 @@
     <section id="skills">
         <h3>Technical Skills</h3>
         <div class="skills-list" style="gap: 1rem;">
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">C++</span>
             <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Python</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Machine Learning</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Data Science</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Ethical Hacking</span>
-            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Cybersecurity</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">JavaScript</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">React.js</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Node.js</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Express.js</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">MongoDB</span>
             <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">SQL</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">HTML & CSS</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Machine Learning</span>
+            <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Ethical Hacking</span>
             <span class="skill-tag" style="background: #1e293b; border: 1px solid #38bdf8; padding: 0.5rem 1rem;">Git & GitHub</span>
         </div>
     </section>
 
     <section id="contact" style="text-align: center;">
         <h3>Let's Connect</h3>
-        <p style="margin-bottom: 2rem;">HRs aur Tech Leads ko impress karne ke liye ready hoon. Let's discuss jobs or collaboration.</p>
-        <p>Email: <a href="mailto:sonusingh@example.com" style="color: #38bdf8;">sonusingh@example.com</a></p>
-        <p style="margin-top: 1.5rem;">
-            <a href="YOUR_LINKEDIN_URL" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">LinkedIn Profile</a> | 
-            <a href="YOUR_GITHUB_URL" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">GitHub Profile</a>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">HRs aur Tech Leads ko impress karne ke liye ready hoon. Let's discuss jobs or collaboration.</p>
+        <div class="contact-info">
+            <p>📧 Email: <a href="mailto:sonusingh.in2019@gmail.com" style="color: #38bdf8; text-decoration: none;">sonusingh.in2019@gmail.com</a></p>
+            <p>📞 Phone: <a href="tel:+919368055141" style="color: #38bdf8; text-decoration: none;">+91 9368055141</a></p>
+        </div>
+        <p style="margin-top: 2rem;">
+            <a href="https://www.linkedin.com/in/sonu-singh-invertian/" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">LinkedIn Profile</a> | 
+            <a href="https://github.com/sonu-singh-invertian" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 1rem; font-weight: bold;">GitHub Profile</a>
         </p>
     </section>
 
