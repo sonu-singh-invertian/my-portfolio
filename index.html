@@ -78,6 +78,22 @@
             color: var(--accent-color);
         }
 
+        /* Resume Button Specific Styling so it's clearly visible */
+        .resume-btn {
+            background-color: var(--accent-color) !important;
+            color: #000 !important;
+            padding: 0.5rem 1.2rem !important;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            font-size: 0.85rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .resume-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
         .menu-btn {
             display: none;
             cursor: pointer;
@@ -416,6 +432,7 @@
                 border-bottom: 1px solid var(--border-color);
                 padding: 2rem;
                 gap: 1.5rem;
+                text-align: center;
             }
             #menu-toggle:checked ~ .nav-links {
                 display: flex;
@@ -437,8 +454,8 @@
                 <a href="#certificates">Certificates</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
-                <!-- Resume link updated here -->
-                <a href="resume.pdf" target="_blank" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Resume</a>
+                <!-- Updated resume link with a visible button class -->
+                <a href="resume.pdf" target="_blank" class="resume-btn">Resume</a>
             </div>
         </div>
     </header>
