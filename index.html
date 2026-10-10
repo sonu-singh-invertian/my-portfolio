@@ -470,26 +470,7 @@
             box-shadow: 0 8px 24px var(--accent-glow);
         }
 
-        /* ---------- Skills (marquee) ---------- */
-        .marquee-wrap {
-            position: relative;
-            overflow: hidden;
-            padding: 1.2rem 0;
-            mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-        }
-        .marquee-row {
-            display: flex;
-            gap: 1rem;
-            width: max-content;
-            margin-bottom: 1rem;
-            animation: scrollLeft 35s linear infinite;
-        }
-        .marquee-row.reverse { animation-name: scrollRight; animation-duration: 40s; }
-        .marquee-wrap:hover .marquee-row { animation-play-state: paused; }
-        @keyframes scrollLeft { to { transform: translateX(-50%); } }
-        @keyframes scrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-
+        /* ---------- Skills ---------- */
         .skills-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
         .skill-tag {
@@ -510,12 +491,6 @@
             background: rgba(34, 211, 238, 0.08);
             transform: translateY(-3px);
             box-shadow: 0 6px 18px rgba(34,211,238,0.15);
-        }
-        .marquee-row .skill-tag {
-            font-size: 1rem;
-            padding: 0.85rem 1.7rem;
-            border-radius: 12px;
-            background: var(--bg-card);
         }
 
         /* ---------- Contact (two columns) ---------- */
@@ -623,6 +598,123 @@
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
         ::selection { background: rgba(34,211,238,0.3); color: #fff; }
 
+
+        /* ---------- Extra blocks: hero lead, projects, education, skills, meta ---------- */
+        .hero .hero-lead {
+            font-size: 1.25rem;
+            line-height: 1.45;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .meta-line {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.76rem;
+            color: #64748b;
+            margin-bottom: 0.9rem;
+            letter-spacing: 0.2px;
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            vertical-align: middle;
+            margin-left: 0.6rem;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #4ade80;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+        }
+        .badge-live::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse 2s infinite;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 2rem;
+        }
+        .project-card { display: flex; flex-direction: column; padding: 2.2rem; }
+        .project-card:hover { transform: translateY(-8px); }
+        .project-card .btn-sm { align-self: flex-start; margin-top: 1.6rem; }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.6rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .edu-grid .card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1.8rem 2.2rem;
+        }
+        .edu-grid .card:hover { transform: translateY(-4px); }
+        .edu-main { grid-column: 1 / -1; padding: 2.2rem 2.4rem !important; }
+        .edu-grid .score { text-align: right; flex-shrink: 0; }
+        .edu-grid .score strong {
+            display: block;
+            font-size: 2rem;
+            line-height: 1.1;
+            font-weight: 800;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .edu-grid .score span {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+        }
+        .edu-small .score strong { font-size: 1.6rem; }
+
+        .skill-groups {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 1.6rem;
+        }
+        .skill-group { grid-column: span 2; }
+        .skill-group:nth-child(n+4) { grid-column: span 3; }
+        @media (max-width: 900px) {
+            .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .skill-group, .skill-group:nth-child(n+4) { grid-column: span 1; }
+        }
+        @media (max-width: 600px) {
+            .skill-groups { grid-template-columns: minmax(0, 1fr); }
+        }
+        .skill-group { padding: 1.8rem 2rem; }
+        .skill-group:hover { transform: translateY(-5px); }
+        .skill-group .company-tag { margin-bottom: 1.1rem; }
+
+        @media (max-width: 1100px) {
+            .nav-links a { padding: 0.5rem 0.7rem; font-size: 0.84rem; }
+            .resume-btn { margin-left: 0.2rem; }
+        }
+        @media (max-width: 968px) {
+            .nav-links a { padding: 0.5rem 1rem; font-size: 0.88rem; }
+            .edu-grid { grid-template-columns: minmax(0, 1fr); }
+            .edu-grid .card { padding: 1.5rem; }
+            .edu-main { padding: 1.6rem 1.5rem !important; }
+        }
+
         /* ---------- Responsive ---------- */
         @media (max-width: 968px) {
             .hero {
@@ -671,7 +763,6 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .reveal { opacity: 1; transform: none; }
-            .marquee-row { flex-wrap: wrap; width: auto; justify-content: center; }
         }
     </style>
 </head>
@@ -690,7 +781,9 @@
             <label for="menu-toggle" class="menu-btn">&#9776;</label>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#projects">Projects</a>
                 <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
                 <a href="#certificates">Certificates</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
@@ -704,8 +797,8 @@
             <div class="hero-tag">Available for Opportunities</div>
             <h1>Software Engineer & CSE Student</h1>
             <h2>Invertis University</h2>
-            <p>Hi, I'm Sonu Singh, a passionate B.Tech Computer Science & Engineering student with a strong interest in Software Development, Machine Learning, and Cybersecurity. I enjoy building practical, user-focused applications and continuously improving my technical skills through real-world projects and internships.</p>
-            <p>I have hands-on experience with C++, Python, JavaScript, HTML, CSS, React.js, Node.js, Express.js, MongoDB, SQL, and Git. I have also completed internships in Machine Learning & Data Science and Ethical Hacking, which strengthened my problem-solving abilities and practical understanding of modern technologies.</p>
+            <p class="hero-lead">Hi, I'm Sonu Singh. I enjoy building practical, user-focused applications.</p>
+            <p>B.Tech Computer Science & Engineering student with a strong interest in Software Development, Machine Learning, and Cybersecurity. Hands-on with C++, Python, JavaScript, React.js, Node.js, MongoDB, SQL, and Git, with internships in Business Analysis, Machine Learning & Data Science, and Ethical Hacking.</p>
         </div>
 
         <div class="hero-image bento reveal">
@@ -720,22 +813,63 @@
         </div>
     </section>
 
+    <section id="projects">
+        <h3 class="section-title reveal" data-index="01">Featured Projects</h3>
+        <div class="project-grid">
+            <div class="card project-card reveal">
+                <span class="company-tag">Final Year Project</span>
+                <h4>Traffic Violation Detection System</h4>
+                <p>A bike-mounted Raspberry Pi camera system that records vehicles ahead and, when a traffic rule is broken, captures the vehicle and its number plate and sends the details to the traffic police.</p>
+                <div class="skills-list" style="margin-top: 1.5rem;">
+                    <span class="skill-tag">Raspberry Pi</span>
+                    <span class="skill-tag">Embedded Camera</span>
+                    <span class="skill-tag">Road Safety</span>
+                </div>
+                <!-- TODO: replace with this project's own GitHub repository link -->
+                <a href="https://github.com/sonu-singh-invertian" target="_blank" class="btn-sm">View on GitHub &rarr;</a>
+            </div>
+            <div class="card project-card reveal">
+                <span class="company-tag">Final Year Project</span>
+                <h4>Road Safety Data Analytics Dashboard</h4>
+                <p>An interactive dashboard that turns road safety and traffic data into clear visual insights.</p>
+                <div class="skills-list" style="margin-top: 1.5rem;">
+                    <span class="skill-tag">Data Analytics</span>
+                    <span class="skill-tag">Dashboard</span>
+                    <span class="skill-tag">Road Safety</span>
+                </div>
+                <!-- TODO: replace with this project's own GitHub repository / live dashboard link -->
+                <a href="https://github.com/sonu-singh-invertian" target="_blank" class="btn-sm">View on GitHub &rarr;</a>
+            </div>
+        </div>
+    </section>
+
     <section id="experience">
-        <h3 class="section-title reveal" data-index="01">Professional Experience</h3>
+        <h3 class="section-title reveal" data-index="02">Professional Experience</h3>
         <div class="timeline">
             <div class="card reveal">
-                <span class="company-tag">Cybersecurity Domain</span>
-                <h4>Ethical Hacking Intern</h4>
-                <p>Focused on vulnerability assessment, network security auditing, and understanding penetration testing methodologies to secure digital infrastructure and corporate assets.</p>
+                <span class="company-tag">Cloud Security Domain</span>
+                <h4>Cloud Cybersecurity Intern <span class="badge-live">In Progress</span></h4>
+                <span class="meta-line">EduSkills &times; AICTE &middot; Virtual Internship</span>
+                <p>Currently pursuing a Cloud Cybersecurity virtual internship with EduSkills, building on my cybersecurity foundation.</p>
                 <div class="skills-list" style="margin-top: 1.5rem;">
-                    <span class="skill-tag">VAPT</span>
-                    <span class="skill-tag">Network Security</span>
-                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Cloud Security</span>
+                    <span class="skill-tag">Cybersecurity</span>
+                </div>
+            </div>
+            <div class="card reveal">
+                <span class="company-tag">Business Analysis Domain</span>
+                <h4>Business Analyst Intern</h4>
+                <span class="meta-line">EduSkills &times; AICTE &middot; Supported by Celonis &middot; Jun &ndash; Aug 2026 &middot; 8 weeks</span>
+                <p>Completed the Business Analyst Virtual Internship supported by Celonis, developing practical skills in analysing business data to support decision making.</p>
+                <div class="skills-list" style="margin-top: 1.5rem;">
+                    <span class="skill-tag">Celonis</span>
+                    <span class="skill-tag">Business Analysis</span>
                 </div>
             </div>
             <div class="card reveal">
                 <span class="company-tag">AI & Analytics Domain</span>
                 <h4>Machine Learning Intern</h4>
+                <span class="meta-line">EduSkills &times; AICTE &middot; Apr &ndash; Jun 2026 &middot; 8 weeks</span>
                 <p>Worked on data preprocessing pipelines, predictive modeling implementations, and analyzing large datasets to extract actionable engineering insights using core algorithms.</p>
                 <div class="skills-list" style="margin-top: 1.5rem;">
                     <span class="skill-tag">Python</span>
@@ -743,47 +877,127 @@
                     <span class="skill-tag">Scikit-Learn</span>
                 </div>
             </div>
+            <div class="card reveal">
+                <span class="company-tag">Cybersecurity Domain</span>
+                <h4>Ethical Hacking Intern</h4>
+                <span class="meta-line">EduSkills &times; AICTE &middot; Jan &ndash; Mar 2026 &middot; 10 weeks</span>
+                <p>Focused on vulnerability assessment, network security auditing, and understanding penetration testing methodologies to secure digital infrastructure and corporate assets.</p>
+                <div class="skills-list" style="margin-top: 1.5rem;">
+                    <span class="skill-tag">VAPT</span>
+                    <span class="skill-tag">Network Security</span>
+                    <span class="skill-tag">Linux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h3 class="section-title reveal" data-index="03">Education</h3>
+        <div class="edu-grid">
+            <div class="card edu-main reveal">
+                <div>
+                    <span class="company-tag">Bachelor's Degree &middot; 4th Year</span>
+                    <h4>B.Tech &ndash; Computer Science & Engineering</h4>
+                    <p>Invertis University, Bareilly, Uttar Pradesh</p>
+                </div>
+                <div class="score"><strong>7.5</strong><span>CGPA</span></div>
+            </div>
+            <div class="card edu-small reveal">
+                <div>
+                    <span class="company-tag">Class XII &middot; CBSE &middot; 2023</span>
+                    <p>Radha Madhav Public School, Bareilly</p>
+                </div>
+                <div class="score"><strong>75%</strong></div>
+            </div>
+            <div class="card edu-small reveal">
+                <div>
+                    <span class="company-tag">Class X &middot; CBSE &middot; 2021</span>
+                    <p>Radha Madhav Public School, Bareilly</p>
+                </div>
+                <div class="score"><strong>72%</strong></div>
+            </div>
         </div>
     </section>
 
     <section id="certificates">
-        <h3 class="section-title reveal" data-index="02">Verified Credentials</h3>
+        <h3 class="section-title reveal" data-index="04">Verified Credentials</h3>
         <div class="cert-list">
             <div class="card reveal">
                 <div>
-                    <h4>Cybersecurity Verification</h4>
-                    <p>Official completion credential evaluating practical knowledge of threat frameworks and defensive methodologies.</p>
+                    <span class="company-tag">EduSkills &times; AICTE &middot; Jun &ndash; Aug 2026</span>
+                    <h4>Business Analyst Verification</h4>
+                    <p>Official completion credential for the Business Analyst Virtual Internship, supported by Celonis.</p>
                 </div>
-                <a href="hacking_cert.pdf" target="_blank" class="btn-sm">Review Credential &rarr;</a>
+                <a href="ba_cert.pdf" target="_blank" class="btn-sm">Review Credential &rarr;</a>
             </div>
             <div class="card reveal">
                 <div>
+                    <span class="company-tag">EduSkills &times; AICTE &middot; Apr &ndash; Jun 2026</span>
                     <h4>Data Science Verification</h4>
                     <p>Assessed professional competency in machine learning algorithms, model training, and statistical workflows.</p>
                 </div>
                 <a href="ml_cert.pdf" target="_blank" class="btn-sm">Review Credential &rarr;</a>
             </div>
+            <div class="card reveal">
+                <div>
+                    <span class="company-tag">EduSkills &times; AICTE &middot; Jan &ndash; Mar 2026</span>
+                    <h4>Cybersecurity Verification</h4>
+                    <p>Official completion credential evaluating practical knowledge of threat frameworks and defensive methodologies.</p>
+                </div>
+                <a href="hacking_cert.pdf" target="_blank" class="btn-sm">Review Credential &rarr;</a>
+            </div>
         </div>
     </section>
 
     <section id="skills">
-        <h3 class="section-title reveal" data-index="03">Core Competencies</h3>
-        <div class="marquee-wrap reveal">
-            <div class="marquee-row">
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Express.js</span>
+        <h3 class="section-title reveal" data-index="05">Core Competencies</h3>
+        <div class="skill-groups">
+            <div class="card skill-group reveal">
+                <span class="company-tag">Languages</span>
+                <div class="skills-list">
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
             </div>
-            <div class="marquee-row reverse">
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">HTML5 & CSS3</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Ethical Hacking</span>
-                <span class="skill-tag">Git & GitHub</span>
+            <div class="card skill-group reveal">
+                <span class="company-tag">Web Development</span>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML5 & CSS3</span>
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express.js</span>
+                </div>
+            </div>
+            <div class="card skill-group reveal">
+                <span class="company-tag">Data & Machine Learning</span>
+                <div class="skills-list">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">Excel</span>
+                </div>
+            </div>
+            <div class="card skill-group reveal">
+                <span class="company-tag">Databases</span>
+                <div class="skills-list">
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+            <div class="card skill-group reveal">
+                <span class="company-tag">Security & Tools</span>
+                <div class="skills-list">
+                    <span class="skill-tag">Ethical Hacking</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                </div>
             </div>
         </div>
     </section>
@@ -829,23 +1043,6 @@
     </footer>
 
     <script>
-        // Duplicate marquee rows for seamless loop
-        document.querySelectorAll('.marquee-row').forEach(row => {
-            const items = [...row.children];
-            for (let i = 0; i < 2; i++) {
-                items.forEach(it => {
-                    const c = it.cloneNode(true);
-                    c.setAttribute('aria-hidden', 'true');
-                    row.appendChild(c);
-                });
-            }
-            // 3 copies total; shift by one third for a seamless loop
-            row.style.setProperty('--shift', '33.3333%');
-        });
-        const style = document.createElement('style');
-        style.textContent = '@keyframes scrollLeft{to{transform:translateX(-33.3333%)}}@keyframes scrollRight{from{transform:translateX(-33.3333%)}to{transform:translateX(0)}}';
-        document.head.appendChild(style);
-
         // Scroll reveal
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => {
