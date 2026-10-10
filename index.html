@@ -757,6 +757,40 @@
             .edu-main { padding: 1.6rem 1.5rem !important; }
         }
 
+        /* ---------- Floating code symbols (background) ---------- */
+        .floaters {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .floater {
+            position: absolute;
+            top: 100%;
+            left: var(--x);
+            font-family: var(--mono);
+            font-size: var(--s);
+            font-weight: 600;
+            color: var(--c);
+            white-space: nowrap;
+            opacity: 0;
+            text-shadow: 0 0 18px var(--c);
+            filter: blur(var(--b));
+            will-change: transform, opacity;
+            animation: floatUp var(--d) linear var(--delay) infinite;
+        }
+        @keyframes floatUp {
+            0%   { transform: translate3d(0, 0, 0) rotate(var(--r0)); opacity: 0; }
+            10%  { opacity: var(--o); }
+            50%  { transform: translate3d(calc(var(--dx) * 0.5), -75vh, 0) rotate(calc((var(--r0) + var(--r1)) / 2)); }
+            90%  { opacity: var(--o); }
+            100% { transform: translate3d(var(--dx), -150vh, 0) rotate(var(--r1)); opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .floaters { display: none; }
+        }
+
         /* ---------- Responsive ---------- */
         @media (max-width: 968px) {
             .hero {
@@ -1092,6 +1126,45 @@
     </footer>
 
     <script>
+        // Floating code symbols in the background
+        (function () {
+            const items = [
+                '</>', '{ }', 'Python', 'Java', 'C', 'C++', 'JavaScript', 'SQL',
+                'HTML', 'CSS', 'React', 'Node.js', 'Git', 'print()', '#include',
+                'int main()', 'SELECT *', '=>', '01010', 'npm', 'import numpy',
+                'def ai():', '&&', '[ ]', 'console.log()', 'MongoDB', 'public static',
+                'pandas', 'git push', '<div>', 'return 0;', 'async/await'
+            ];
+            const colors = ['#22d3ee', '#8b5cf6', '#67e8f9', '#a78bfa', '#94a3b8', '#38bdf8'];
+            const rnd = (a, b) => a + Math.random() * (b - a);
+            const box = document.createElement('div');
+            box.className = 'floaters';
+            box.setAttribute('aria-hidden', 'true');
+
+            const count = window.innerWidth < 700 ? 16 : 30;
+            const pool = items.slice().sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('span');
+                el.className = 'floater';
+                el.textContent = pool[i % pool.length];
+                const depth = Math.random();            // 0 = far, 1 = near
+                const d = rnd(26, 52) - depth * 10;     // seconds per trip
+                el.style.setProperty('--x', rnd(2, 94).toFixed(1) + '%');
+                el.style.setProperty('--s', (13 + depth * 24).toFixed(0) + 'px');
+                el.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
+                el.style.setProperty('--o', (0.14 + depth * 0.20).toFixed(2));
+                el.style.setProperty('--b', depth < 0.3 ? '1.5px' : '0px');
+                el.style.setProperty('--d', d.toFixed(1) + 's');
+                el.style.setProperty('--delay', '-' + rnd(0, d).toFixed(1) + 's');
+                el.style.setProperty('--dx', rnd(-90, 90).toFixed(0) + 'px');
+                el.style.setProperty('--r0', rnd(-18, 18).toFixed(0) + 'deg');
+                el.style.setProperty('--r1', rnd(-35, 35).toFixed(0) + 'deg');
+                box.appendChild(el);
+            }
+            document.body.insertBefore(box, document.body.firstChild);
+        })();
+
         // Scroll reveal
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => {
