@@ -651,6 +651,48 @@
         .project-card:hover { transform: translateY(-8px); }
         .project-card .btn-sm { align-self: flex-start; margin-top: 1.6rem; }
 
+        .how-it-works {
+            margin-top: 1.6rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .how-label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 0.9rem;
+        }
+        .how-steps { list-style: none; counter-reset: step; }
+        .how-steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 2.3rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+        .how-steps li:last-child { margin-bottom: 0; }
+        .how-steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #04101a;
+            background: var(--grad);
+        }
+
         .edu-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -819,14 +861,21 @@
             <div class="card project-card reveal">
                 <span class="company-tag">Final Year Project</span>
                 <h4>Traffic Violation Detection System</h4>
-                <p>A bike-mounted Raspberry Pi camera system that records vehicles ahead and, when a traffic rule is broken, captures the vehicle and its number plate and sends the details to the traffic police.</p>
+                <p>A bike-mounted Raspberry Pi camera system built to help report traffic rule violations.</p>
                 <div class="skills-list" style="margin-top: 1.5rem;">
                     <span class="skill-tag">Raspberry Pi</span>
                     <span class="skill-tag">Embedded Camera</span>
                     <span class="skill-tag">Road Safety</span>
                 </div>
-                <!-- TODO: replace with this project's own GitHub repository link -->
-                <a href="https://github.com/sonu-singh-invertian" target="_blank" class="btn-sm">View on GitHub &rarr;</a>
+                <div class="how-it-works">
+                    <span class="how-label">How it works</span>
+                    <ol class="how-steps">
+                        <li>The camera on the bike records vehicles ahead</li>
+                        <li>A traffic rule violation is detected</li>
+                        <li>Photos of the vehicle and its number plate are captured</li>
+                        <li>The details are sent to the traffic police</li>
+                    </ol>
+                </div>
             </div>
             <div class="card project-card reveal">
                 <span class="company-tag">Final Year Project</span>
