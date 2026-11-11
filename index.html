@@ -290,7 +290,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1.2rem;
         }
 
         .hero-links {
@@ -1202,11 +1202,11 @@
         .greet-sep { opacity: 0.5; }
 
         /* ---- #9 ID card ---- */
-        .id-scene { perspective: 1100px; width: 100%; max-width: 270px; margin: 0 auto; }
+        .id-scene { perspective: 1100px; width: 100%; max-width: 330px; margin: 0 auto; }
         .id-card {
             position: relative;
             width: 100%;
-            aspect-ratio: 27 / 42;
+            aspect-ratio: 27 / 46;
             transform-style: preserve-3d;
             transition: transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
             cursor: pointer;
@@ -1235,7 +1235,7 @@
         .id-top { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
         .id-slot { width: 40px; height: 7px; border-radius: 6px; background: var(--border-color); box-shadow: inset 0 1px 2px rgba(0,0,0,0.35); }
         .id-label { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 2.5px; color: var(--accent-color); }
-        .id-front .profile-container { max-width: 150px; border-radius: 18px; }
+        .id-front .profile-container { max-width: 250px; border-radius: 18px; }
         .id-front .profile-pic { border-radius: 13px; }
         .id-name { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.4px; color: var(--text-primary); line-height: 1.2; }
         .id-role { font-family: var(--mono); font-size: 0.7rem; color: var(--accent-color); margin-top: 0.2rem; }
@@ -1254,7 +1254,7 @@
         }
         .id-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; }
         .id-hint { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 1px; color: var(--text-secondary); opacity: 0.7; }
-        .id-qr { width: 150px; max-width: 100%; background: #fff; padding: 10px; border-radius: 14px; box-shadow: 0 8px 26px rgba(0,0,0,0.3); }
+        .id-qr { width: 190px; max-width: 100%; background: #fff; padding: 10px; border-radius: 14px; box-shadow: 0 8px 26px rgba(0,0,0,0.3); }
         .id-qr svg { display: block; width: 100%; height: auto; }
         .id-cap { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
         .id-links { display: flex; flex-direction: column; gap: 0.35rem; }
@@ -1500,6 +1500,7 @@
         [data-mode="hacker"] .theme-btn { opacity: 0.6; }
 
         @media (max-width: 600px) {
+            .id-front .profile-container { max-width: 205px; }
             .hacker-btn { left: 16px; bottom: 16px; padding: 0.75rem; }
             .hacker-btn span { display: none; }
         }
